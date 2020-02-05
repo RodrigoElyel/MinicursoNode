@@ -1,0 +1,22 @@
+{
+  "name": "minicursonode",
+  "version": "1.0.0",
+  "description": "Teste de branch",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RodrigoElyel/MinicursoNode.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RodrigoElyel/MinicursoNode/issues"
+  },
+  "homepage": "https://github.com/RodrigoElyel/MinicursoNode#readme",
+  "devDependencies": {
+    "express-generator": "^4.16.1"
+  }
+}
