@@ -4,10 +4,19 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var mongoose = require('mongoose')
 
-var bebidasRouter = require('./routes/bebidas');
-var promosRouter = require('./routes/promos');
-var combosRouter = require('./routes/combos')
+var Bebida = require('./models/bebidas')
+var url = 'mongodb://localhost:27017/bebidaPlace'
+
+const connection = mongoose.connect(url)
+  connection.then((db) => {
+  console.log('conectado ao mongodb')
+}).catch(console.log)
+
+var bebidasRouter = require('./routes/bebidasRouter')
+var promosRouter = require('./routes/promosRouter')
+var combosRouter = require('./routes/combosRouter')
 
 var porta = 3000
 var app = express();
