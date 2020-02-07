@@ -1,14 +1,14 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-
+// quando colocar no POSTMAN, colocar o JSON igual o Schema
 const bebidasSchema = new Schema({
     name: {
         type: String,
         require: true,
         unique: true
     },
-    description: {
+    image: {
         type: String,
         required: true
     },
@@ -16,18 +16,18 @@ const bebidasSchema = new Schema({
         type: String,
         required: true
     },
-    category: {
-        type: String,
+    tags: {
+        type: [String],
         required: true
-    },
-    label: {
-        type: String,
-        default: ''
     },
     price: {
         type: Number,
         required: true,
         min: 0
+    },
+    description: {
+        type: String,
+        required: true
     }
     })
     

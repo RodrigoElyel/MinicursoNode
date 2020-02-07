@@ -25,8 +25,8 @@ const promotionsSchema = new Schema({
         type: String,
         required: true
     }
-    })
-    
+})
+
 const Promotions = mongoose.model('Promotions', promotionsSchema)
 
 module.exports = Promotions

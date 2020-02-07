@@ -21,7 +21,7 @@ router.route('/')
             })
     })
     .put((req, res) => { //update
-        res.status(405).json({error: 'Operação PUT não é suportada em /comboRouter'})
+        res.status(405).json({ error: 'Operação PUT não é suportada em /comboRouter' })
     })
     .delete((req, res) => {
         Combos.remove({}).exec()
@@ -34,29 +34,29 @@ router.route('/')
 router.route('/:comboId')
     .get((req, res, next) => {
         Combos.findById(req.params.comboId).exec()
-        .then((combo) => {
-            res.json(combo)
-        })
-        .catch(next)
-    })
-    .post((req, res) => {
-        res.status(405).json({error: 'Operação POST não suportada' + req.originalUrls})
-    })
-    .put((req, res, next) => {
-        Combos.findByIdAndDelete(req.params.comboId, 
-            {$set: req.body}, {new : true}).exec()
             .then((combo) => {
                 res.json(combo)
-            }) 
+            })
             .catch(next)
-        
+    })
+    .post((req, res) => {
+        res.status(405).json({ error: 'Operação POST não suportada' + req.originalUrls })
+    })
+    .put((req, res, next) => {
+        Combos.findByIdAndDelete(req.params.comboId,
+            { $set: req.body }, { new: true }).exec()
+            .then((combo) => {
+                res.json(combo)
+            })
+            .catch(next)
+
     })
     .delete((req, res, next) => {
         Combos.findByIdAndRemove(req.params.comboId).exec()
-        .then((combo) => {
-            res.json(combo)
-        })
-        .catch(next)
+            .then((combo) => {
+                res.json(combo)
+            })
+            .catch(next)
     })
 
 module.exports = router;
